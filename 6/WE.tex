@@ -1,0 +1,86 @@
+% 31 декабря 2013. Компилился в системе MiKTeX v2.9
+
+\documentclass[12pt]{article}
+\usepackage[cp1251]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{indentfirst}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{latexsym}
+\usepackage{epstopdf}
+\usepackage{listings}
+
+\newtheorem{theorem}{Теорема}[section]
+\newtheorem{task}{Задача}[section]
+
+\pagestyle{empty}
+
+\begin{document}
+
+\title{Численный эксперимент}
+\author{Константинов Остап Б8203а}
+\date{16 июня 2014}
+\maketitle
+
+\section*{Постановка задачи}
+Требуется провести числовой эксперимент интерполяции функций интерполяционными полиномами.
+
+\section*{Решение задачи}
+Мы рассмотрим только линейную интерполяцию, т.е. такую, при которой функция разыскивается в виде линейной комбинации некоторых функций. Одним из способов записи интерполяционного полинома является форма Лагранжа. Возьмем в качестве примера полиноминальную функцию четвертой степени
+$$
+f\left( x \right) = 2{x^4} + 4{x^3} - 8{x^2} - 16x - 32
+$$
+
+И построим его график на промежутке $\left[ { - 1,2} \right]$. После чего, будем строить интерполяционные полиномы, по равностоящим точкам.
+
+Теже действия производим с функцией
+$$
+\dot f\left( x \right) = \ln \left( x \right) + {x^{\frac{3}{5}}} - \left| x \right|
+$$
+
+Взяв новый промежуток $\left[ { - 1,2.9} \right]$.
+
+\begin{figure}[ht]
+\center{\includegraphics[width=0.9\textwidth]{D1.pdf}}
+\caption{График функции $f\left( x \right) = 2{x^4} + 4{x^3} - 8{x^2} - 16x - 32$ на $\left[ { - 1,2} \right]$.}
+\end{figure}
+
+\begin{figure}[ht]
+\center{\includegraphics[width=0.9\textwidth]{D2.pdf}}
+\caption{Интерполяция функции $f\left( x \right)$ полиномом 2-ой степени.}
+\end{figure}
+
+\begin{figure}[ht]
+\center{\includegraphics[width=0.9\textwidth]{D3.pdf}}
+\caption{Интерполяция функции $f\left( x \right)$ полиномом 3-ой степени.}
+\end{figure}
+
+\begin{figure}[ht]
+\center{\includegraphics[width=0.9\textwidth]{D4.pdf}}
+\caption{Интерполяция функции $f\left( x \right)$ полиномом 4-ой степени. В результате получаем, чем больше степень интерполяционного полинома, тем лучше приближение.
+}
+\end{figure}
+
+\begin{figure}[ht]
+\center{\includegraphics[width=0.9\textwidth]{D5.pdf}}
+\caption{График функции $\dot f\left( x \right) = \ln \left( x \right) + {x^{\frac{3}{5}}} - \left| x \right|$.}
+\end{figure}
+
+\begin{figure}[ht]
+\center{\includegraphics[width=0.9\textwidth]{D6.pdf}}
+\caption{Интерполяция функции $\dot f\left( x \right)$ полиномом 2-ой степени.}
+\end{figure}
+
+\begin{figure}[ht]
+\center{\includegraphics[width=0.9\textwidth]{D7.pdf}}
+\caption{Интерполяция функции $\dot f\left( x \right)$ полиномом 3-ой степени.}
+\end{figure}
+
+\begin{figure}[ht]
+\center{\includegraphics[width=0.9\textwidth]{D8.pdf}}
+\caption{Интерполяция функции $\dot f\left( x \right)$ полиномом 4-ой степени. В результате замечаем, что для негладкой функции интерполирование дает большую погрешность.
+}
+\end{figure}
+
+\end{document}

@@ -1,0 +1,50 @@
+% 31 декабря 2013. Компилился в системе MiKTeX v2.9
+
+\documentclass[12pt]{article}
+\usepackage[cp1251]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{indentfirst}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{latexsym}
+\usepackage{epstopdf}
+\usepackage{listings}
+
+\newtheorem{theorem}{Теорема}[section]
+\newtheorem{task}{Задача}[section]
+
+\pagestyle{empty}
+
+\begin{document}
+
+\title{Контрольная работа I: Интерполирование}
+\author{Константинов Остап Б8203а}
+\date{10 июня 2014}
+\maketitle
+
+\section*{Постановка задачи}
+Вопрос №44: Найти полином Лагранжа, который приближает функцию $f\left( x \right) = {x^3}$, используя узлы ${x_0} = 1$, ${x_1} = 2$.
+
+\section*{Решение задачи}
+Найдем формулу интерполяции для $f\left( x \right) = {x^3}$ имеющей следующие значения: 
+$$
+\begin{array}{l}
+{x_0} = 1, f\left( {{x_0}} \right) = 1\\
+{x_1} = 2, f\left( {{x_0}} \right) = 8
+\end{array}
+$$
+Воспользуясь формулой Лагранжа, получим:
+$$
+L\left( x \right) = \frac{{\left( {x - 2} \right)}}{{\left( {1 - 2} \right)}} + \frac{{8\left( {x - 1} \right)}}{{\left( {2 - 1} \right)}} = 8x - 8 - x + 2 = 7x - 6
+$$
+Проверяем:
+$$
+\begin{array}{l}
+L\left( {{x_0}} \right) = L\left( 1 \right) = 7 - 6 = 1\\
+L\left( {{x_1}} \right) = L\left( 2 \right) = 14 - 6 = 8
+\end{array}
+$$
+Тоесть: $L\left( {{x_0}} \right) = f\left( {{x_0}} \right)$ как и $L\left( {{x_1}} \right) = f\left( {{x_1}} \right)$. Следовательно, полученное решение — верно.
+
+\end{document}

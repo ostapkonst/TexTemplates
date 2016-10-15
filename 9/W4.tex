@@ -1,0 +1,111 @@
+% 31 декабря 2013. Компилился в системе MiKTeX v2.9
+
+\documentclass[12pt]{article}
+\usepackage[cp1251]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{indentfirst}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{latexsym}
+\usepackage{epstopdf}
+\usepackage{listings}
+
+\newtheorem{theorem}{Теорема}[section]
+\newtheorem{task}{Задача}[section]
+
+\pagestyle{empty}
+
+\begin{document}
+
+\title{Контрольная работа IV: Сплайны}
+\author{Константинов Остап Б8203а}
+\date{13 июня 2014}
+\maketitle
+
+\section*{Постановка задачи}
+Вопрос №43.1: Заданы матрица и вектор правых частей с. $Ax = b$:
+$$
+A = \left( {\begin{array}{*{20}{c}}
+2&1&0&0\\
+1&2&1&0\\
+0&1&2&1\\
+0&0&2&1
+\end{array}} \right),b = \left( {\begin{array}{*{20}{c}}
+6\\
+8\\
+8\\
+6
+\end{array}} \right)
+$$
+возможно ли деление на нуль в формулах метода прогонки, почему?
+
+\section*{Решение задачи}
+Для применимости формул метода прогонки достаточно выполнения условий диагонального преобладания у матрицы $A$, которая имеет вид: 
+$$
+\left( {\begin{array}{*{20}{c}}
+{{d_1}}&{{e_1}}&0&0\\
+{{c_2}}&{{d_2}}&{{e_2}}&0\\
+0&{{c_3}}&{{d_3}}&{{e_3}}\\
+0&0&{{c_4}}&{{d_4}}
+\end{array}} \right)
+$$
+то есть $\left| {{d_i}} \right| \ge \left| {{c_i}} \right| + \left| {{e_i}} \right|,$ причем хотя бы одно неравенство должно быть строгим. Проверяем для матрицы:
+$$
+2 > 1, 2 = 2, 2 = 2, 1 < 2
+$$
+
+Мы видем, что условие преобладания диагональных элементов матрицы $A$ невыполнено, а это значит, что при применении метода прогонки возможно деление на ноль.
+
+\section*{Постановка задачи}
+Вопрос №43.2: Задана убывающая и выпуклая функция на отрезке. Метод хорд. Выяснить условия сходимости метода.
+
+\section*{Решение задачи}
+Прежде чем перейти к вопросу о сходимости итерационного процесса метода хорд введем понятие выпуклой функции.
+
+Непрерывная на $\left[ {a,b} \right]$ функция называется выпуклой, если для любых двух точек ${x_1},{x_2},$ удовлетворяющих $a \le {x_1} \le {x_2} \le b$ и $a \in \left[ {0,1} \right]$ выполняется соотношение 
+$$
+f\left( {a{x_1} + \left( {1 - a} \right){x_2}} \right) \le af\left( {{x_1}} \right) + \left( {1 - a} \right)f\left( {{x_2}} \right)
+$$
+
+Изобразим убывающую и выпуклую функцию на графике.
+
+\begin{figure}[ht]
+\center{\includegraphics[width=0.7\textwidth]{P1.pdf}}
+\caption{Убывающая выпуклая функция.}
+\end{figure}
+
+Докажем сходимость интерполяционного процесса для случая выпуклой функции.
+
+Теорема: Пусть задана непрерывная: дважды дифференцируемая ф. $f\left( x \right)$ на $\left[ {a,b} \right]$ и пусть $f\left( a \right)f\left( b \right) < 0,$ а $f'\left( x \right)$ и $f''\left( x \right)$ сохраняют свои знаки на $\left[ {a,b} \right]$. Тогда итерационный процесс метода хорд сходится к корню $\xi $ с любой наперед заданной точностью $\varepsilon $. 
+
+Доказательство: Рассмотрим для примера случай $f\left( a \right)f''\left( a \right) < 0$. Из формулы $${x_n} = {x_{n - 1}} - \frac{{f\left( {{x_{n - 1}}} \right)}}{{f\left( b \right) - f\left( {{x_{n - 1}}} \right)}}\left( {b - {x_{n - 1}}} \right)$$ следует, что ${x_n} > {x_{n - 1}}$ так как $\left( {b - {x_{n - 1}}} \right) > 0$, а ${f_{n - 1}}/\left( {{f_b} - {f_{n - 1}}} \right) < 0$. Это справедливо для любого $n$, то есть получаем возрастающую последовательность чисел $a \le {x_0} < {x_1} < {x_2} <  \ldots  < {x_n} \le b$.
+
+Докажем теперь, что все приближения ${x_n} < \xi $, где $\xi $ - корень. Пусть ${x_{n - 1}} < \xi $. Покажем, что ${x_n}$ тоже меньше $\xi $. 
+
+Введем 
+$$
+{x_n} = a{x_{n - 1}} + \left( {1 - a} \right)b;\xi  = \mu {x_{n - 1}} + \left( {1 - \mu } \right)b
+$$
+
+Имеем
+$$
+y\left( {{x_n}} \right) = a{f_{n - 1}} + \left( {1 - a} \right){f_b} = f\left( \xi  \right)
+$$ а это значит, что значение функции $y\left( x \right)$ в точке ${x_n}$ на хорде $\left[ {{x_{n - 1}};b} \right]$ совпадают с $f\left( \xi  \right)$. Рассмотрим два случая.
+ 
+Первый: 
+$$
+f\left( \xi  \right) \le \mu {f_{n - 1}} + \left( {1 - \mu } \right){f_b}
+$$ 
+следует $a{f_{n - 1}} + \left( {1 - a} \right){f_b} \le \mu {f_{n - 1}} + \left( {1 - \mu } \right){f_b}$ или $a\left( {{f_{n - 1}} - {f_b}} \right) \le \mu \left( {{f_{n - 1}} - {f_b}} \right)$ так как ${f_{n - 1}} < {f_b} \Rightarrow a \ge \mu  \Rightarrow {x_n} < \xi $ ч.т.д.
+
+Второй:
+$$
+f\left( \xi  \right) \ge \mu {f_{n - 1}} + \left( {1 - \mu } \right){f_b}
+$$ 
+следует $a{f_{n - 1}} + \left( {1 - a} \right){f_b} \ge \mu {f_{n - 1}} + \left( {1 - \mu } \right){f_b}$ или $a\left( {{f_{n - 1}} - {f_b}} \right) \ge \mu \left( {{f_{n - 1}} - {f_b}} \right)$ так как ${f_{n - 1}} > {f_b} \Rightarrow a \ge \mu  \Rightarrow {x_n} < \xi $ ч.т.д.
+
+Таким образом, мы доказали, что последовательность чисел ${x_i}$ является сходящейся. Это значит, что для любой $\varepsilon $ можно указать такое $n$, что будет выполняться $\left| {{x_n} - \xi } \right| < \varepsilon $. Теорема доказана.
+
+
+\end{document}

@@ -1,0 +1,71 @@
+% 31 декабря 2013. Компилился в системе MiKTeX v2.9
+
+\documentclass[12pt]{article}
+\usepackage[cp1251]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{indentfirst}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{latexsym}
+\usepackage{epstopdf}
+\usepackage{listings}
+
+\newtheorem{theorem}{Теорема}[section]
+\newtheorem{task}{Задача}[section]
+
+\pagestyle{empty}
+
+\begin{document}
+
+\title{Контрольная работа II: Численное дифференцирование}
+\author{Константинов Остап Б8203а}
+\date{17 июня 2014}
+\maketitle
+
+\section*{Постановка задачи}
+Вопрос №44: Найти погрешность аппроксимации $R\left( x \right)$ для $f'\left( {{x_0}} \right),$ вычесляемой по приближенной формуле
+$$
+f'\left( {{x_0}} \right) = \frac{{3{f_0} - 4{f_{ - 1}} + {f_{ - 2}}}}{{2h}} + R\left( x \right).
+$$
+
+\section*{Решение задачи}
+Ошибку $\varepsilon \left( {{x_0};h} \right)$ при замене $f'\left( {{x_0}} \right)$ на апроксимирующую функцию можно оценить исходя из разложения $f\left( x \right)$ в точке  ${x_0}$ по формуле Тейлора с остаточным членом в форме Лагранжа порядка 3:
+$$
+f\left( {{x_0} + h} \right) = f\left( {{x_0}} \right) + f'\left( {{x_0}} \right)h + \frac{{f''\left( {{x_0}} \right)}}{2}{h^2} + \frac{{f'''\left( {{x_\theta }} \right)}}{6}{h^3}
+$$
+где ${x_\theta } \in \left( {{x_0};{x_0} + h} \right)$.
+$$
+f\left( {{x_0} - h} \right) = f\left( {{x_0}} \right) - f'\left( {{x_0}} \right)h + \frac{{f''\left( {{x_0}} \right)}}{2}{h^2} - \frac{{f'''\left( {{x_{\theta _1} }} \right)}}{6}{h^3}
+$$
+где ${x_{\theta _1} } \in \left( {{x_0} - h;{x_0}} \right)$. Подставляя $ -2h$, получаем:
+$$
+f\left( {{x_0} - 2h} \right) = f\left( {{x_0}} \right) - 2f'\left( {{x_0}} \right)h + 2f''\left( {{x_0}} \right){h^2} - 4\frac{{f'''\left( {{x_{\theta _2} }} \right)}}{3}{h^3}
+$$
+где ${x_{\theta _2} } \in \left( {{x_0} - 2h;{x_0}} \right)$. Вычисляем согласно апроксимирующей функции:
+$$
+3f\left( {{x_0}} \right) - 4f\left( {x - h} \right) + f\left( {x - 2h} \right) = 3f\left( {{x_0}} \right) - 4f\left( {{x_0}} \right) + 
+$$
+$$
+4f'\left( {{x_0}} \right)h - 2f''\left( {{x_0}} \right){h^2} + 2\frac{{f'''\left( {{x_{{\theta _1}}}} \right)}}{3}{h^3} + f\left( {{x_0}} \right) - 2f'\left( {{x_0}} \right)h + 
+$$
+$$
+2f''\left( {{x_0}} \right){h^2} - 4\frac{{f'''\left( {{x_{{\theta _2}}}} \right)}}{3}{h^3}
+$$
+Отсюда:
+$$
+f'\left( {{x_0}} \right) = \frac{{3f\left( {{x_0}} \right) - 4f\left( {{x_0} - h} \right) + f\left( {{x_0} - 2h} \right)}}{{2h}} - \frac{{f'''\left( {{x_{{\theta _1}}}} \right) - 2f'''\left( {{x_{{\theta _2}}}} \right)}}{3}{h^2}
+$$
+Если теперь предположить, что
+$$
+\mathop {\max }\limits_{x \in \left[ {a;b} \right]} \left| {f'''\left( x \right)} \right| = {M_3}
+$$
+то оценка погрешности получится такая:
+$$
+\left| {\varepsilon \left( {{x_0};h} \right)} \right| = \left| {f'\left( {{x_0}} \right) - \frac{{3f\left( {{x_0}} \right) - 4f\left( {{x_0} - h} \right) + f\left( {{x_0} - 2h} \right)}}{{2h}}} \right| \le 
+$$
+$$
+\frac{{\left| {f'''\left( {{x_{{\theta _1}}}} \right) + 2f'''\left( {{x_{{\theta _2}}}} \right)} \right|}}{3}{h^2} \le \frac{1}{3}{M_3}{h^2}
+$$
+
+\end{document}
