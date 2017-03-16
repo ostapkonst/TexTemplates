@@ -1,0 +1,161 @@
+% ФАЙЛ   sam1.tex
+% 31 декабря 2002. Компилился в системе MiKTeX v2.1
+
+\documentclass[12pt]{article}
+\usepackage[cp1251]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{latexsym}
+
+\newcommand{\one}{\mathbb{I}}
+\renewcommand{\vec}[1]{\ensuremath\overrightarrow{#1}}
+\newtheorem{theorem}{Теорема}[section]
+\newtheorem{task}{Задача}[section]
+
+\begin{document}
+\title{Фигня и её приложения}
+\author{Артем Ворожцов}
+\date{31 июля 3001}
+\maketitle
+%Это аннотация
+%
+\begin{abstract}
+Это аннотация.  Здесь все вкратце. Фигня фигне рознь,
+и со всякой  фигнёй  можно по разному глумимся. Здесь
+показано как можно глумится над фигнёй, вводя риманову
+метрику  на  многообразии  фиговин,  согласованную  с
+аффинной и экспоненциальной связностями.
+\end{abstract}
+\tableofcontents
+\section{Введение}
+Это текст о том, что все фигня\footnote{Фигню ещё
+в некоторых работах называют по другому, здесь мы не
+будем прибегать к таким обозначениям, потому что
+это слишком грубо}, но в каждой фигне есть польза.
+Этому уделено внимание в части \ref{sec:main}.
+Данные исследования отчасти исходят из идей,
+описанных М.~Онстером в его крутой
+работе~\cite[на~странице 12345]{rulez}. Главный
+результат представлен в виде формулы \ref{eq:main}
+на странице \pageref{eq:main} где все круто
+обобщено на поле $\Re$.
+
+\section{Главная часть}
+\label{sec:main} Это главная часть.  Начнём с начала
+(часть~\ref{sec:setup}), то есть с азов, которые
+более подробно описаны в работе~\cite{azbuka}, а
+потом перейдём к изучению алгебраических
+инвариантов (часть~\ref{sec:inv}).
+
+\subsection{Постановка задачи о фигне}
+\label{sec:setup} Дано гладкое многообразие фиговин.
+ Надо ввести каноническую метрику, относительно которой
+аффинная связность дуальна экспоненциальной.
+
+\subsection{Монотонные метрики на многообразии фигней}
+\label{sec:inv}
+
+Рассмотрим информационную метрику для
+${\cal D}\approx{\mathbb{R}^n}\times{}^{U(n)}/_{T^n}$.
+Плотность   $\rho\in{\cal D}$ можно диагонализовать
+унитарным преобразованием $u$:
+
+\begin{equation}
+\rho=u\mu^2 u^*,\qquad\mu=
+diag(\mu_1,\dots,\mu_n),\quad\mu_i\in{\Bbb R}_+
+\label{eq:rho}
+\end{equation}
+и мы получаем $d\rho=2u\,\mu d\mu
+u^*+u,[u^*du,\mu^2]\,u^*$. Обратная задача разбивается на
+$$
+\frac{1}{{\bf L}_\rho+{\bf R}_\rho}\,(d\rho)=u\,
+\left(\mu^{-1} d\mu+ \frac{1}{{\bf L}_{\mu^2}+
+{\bf R}_{\mu^2}}([u^*du,\mu^2])\right)u^*
+$$
+и мы получаем выражение для метрики
+\begin{theorem}
+\label{th:metric}
+Итак, мы доказали, что
+\begin{equation}
+\label{eq:main}
+g_{\rho}= Tr d\mu d\mu+ \frac{1}{2}
+Tr[\,u^*du,\mu^2\,] \frac{1}{{\bf L}_\mu^2+{\bf
+R}_\mu^2}\,([\,u^*du,\mu^2\,])\,.
+\end{equation}
+\end{theorem}
+
+\begin{figure}[!h]
+\hfil
+\includegraphics[width=0.4\textwidth]{V0044.eps}
+\hfil
+\includegraphics[width=0.4\textwidth]{VGR44.eps}
+\hfil
+
+\caption{
+Все фиговины как известно занумерованы
+натуральными числами. Здесь показаны график
+характеристики группы монодромии фиговины под
+номером 44 и её спектр (корни на комплексной
+плоскости)}
+\label{fig:figa44}
+\end{figure}
+
+ Объединение Грасманианов в $\mathbb{C}^{N}$ можно
+ интерпретировать как $\{S\in \mathop{U}(N):S^{2}=\one \}$.
+Назовем $S\in
+\mathop{Harm}(\mathbb{S}^{2},\mathop{U}(N))$
+{\em решением Грасманиана} если существует
+$Q\in \mathop{U}(N)$ такая, что $(QS)^{2}=\one $.
+Пусть $E_{\lambda }$ обобщенное решение для
+$S$ и положим  $E_{\lambda }(\infty )$ сопряженным к
+$\begin{pmatrix}\one &\\&-\lambda
+\one \end{pmatrix} $.
+\begin{theorem}[Uhlenbeck,1995]
+\label{th:uhlen}
+Верно что $\widetilde
+{E}_{\lambda }=E_{-\lambda }E_{1}^{-1}$ есть обобщенное
+решение для $S^{-1}$.
+\end{theorem}
+Так вот. Вот мы и разобрали две теоремы. А теперь
+сами докажите что-нибудь. Используя эти теоремы
+докажите, что
+\begin{task}
+Фигня все это.
+\end{task}
+А также, используя рисунок \ref{fig:figa44} и
+формулу \ref{eq:main} из теоремы \ref{th:metric},
+комбинируя её с результатом \ref{eq:rho} на
+странице \pageref{eq:rho}, и применяя метод
+Галбицы (см.~\cite[стр. $N^2$]{rulez}) подставляя
+$\rho$ в $\cal G$, и выражая все через инвариант
+Лоха~\cite{azbuka},
+
+\begin{task}
+Докажите, что в огороде бузина, а в Киеве —- дядька.
+\end{task}
+
+\section{Выводы}
+Всякой фигне найдётся применение.
+
+И напоследок теоремка!
+\begin{theorem}
+Гомоморфный образ группы изоморфен фактор группе
+по ядру гомоморфизма.
+\end{theorem}
+
+ %Здесь начинается библиография
+
+\begin{thebibliography}{99}
+
+\bibitem{azbuka}%
+ С.\,Б.\,Лохов, \textit{О Фигне для чайников.} —
+М.:Высш.шк., 1993.
+
+\bibitem{rulez}%
+M. Онстер, \textit{Об одном применении фигни в
+квазинильпотентных алгебрах.} МK НМУ. 2001.
+
+\end{thebibliography}
+\end{document}
